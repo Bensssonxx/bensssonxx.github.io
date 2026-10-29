@@ -10,7 +10,7 @@
     root.dataset.theme=theme;
     const label=`Switch to ${theme==='light'?'dark':'light'} theme`;
     themeButton.setAttribute('aria-label',label);themeButton.title=label;
-    document.querySelector('meta[name="theme-color"]').content=theme==='light'?'#f8faf9':'#191d1c';
+    document.querySelector('meta[name="theme-color"]').content=theme==='light'?'#e4e8ed':'#141820';
   }
   try{setTheme(localStorage.getItem(themeKey)==='dark'?'dark':'light');}catch{setTheme('light');}
   themeButton.addEventListener('click',()=>{const theme=root.dataset.theme==='light'?'dark':'light';setTheme(theme);try{localStorage.setItem(themeKey,theme);}catch{}});
