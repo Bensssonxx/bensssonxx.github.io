@@ -69,10 +69,26 @@
   });
   const navLinks=[...document.querySelectorAll('nav a[href^="#"]')];
   const sections=[...document.querySelectorAll('main>section[id]')];
-  function updateNavigation(){const current=sections.filter(s=>s.offsetTop<=scrollY+160).at(-1);navLinks.forEach(a=>{if(current&&a.hash===`#${current.id}`)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}
+  function updateNavigation(){const current=sections.filter(s=>s.getBoundingClientRect().top<=160).at(-1);navLinks.forEach(a=>{if(current&&a.hash===`#${current.id}`)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}
   let scheduled=false;
   addEventListener('scroll',()=>{if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{updateNavigation();scheduled=false;});},{passive:true});
   addEventListener('resize',updateNavigation);updateNavigation();
+  // Native radios remain usable without scripts; the glass only follows their state.
+  const glassControls=document.querySelector('.preview-controls');
+  if(glassControls){
+    const glass=glassControls.querySelector('.preview-glass');
+    const positionGlass=()=>{
+      const checked=glassControls.querySelector('input:checked');
+      const label=checked&&glassControls.querySelector(`label[for="${checked.id}"]`);
+      if(!label||!glass)return;
+      glassControls.style.setProperty('--selection-x',`${label.offsetLeft}px`);
+      glassControls.style.setProperty('--selection-width',`${label.offsetWidth}px`);
+      glass.hidden=false;glassControls.classList.add('glass-ready');
+    };
+    glassControls.addEventListener('change',positionGlass);
+    if('ResizeObserver'in window)new ResizeObserver(positionGlass).observe(glassControls);
+    document.fonts?.ready.then(positionGlass);positionGlass();
+  }
   // The HTML is visible before JavaScript. Only animate a brief, one-time arrival.
   const moving=new Set();
   if('IntersectionObserver'in window){

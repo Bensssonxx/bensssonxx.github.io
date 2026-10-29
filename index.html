@@ -8,9 +8,9 @@
 <meta name="theme-color" content="#e4e8ed"><title>Boshen Yang</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
 </head>
-<body>
+<body id="top">
 <a class="skip-link" href="#main">Skip to content</a>
-<header id="top" class="site-header">
+<header class="site-header">
 <a class="site-name" href="#top" aria-label="Boshen Yang, back to top">Boshen Yang</a>
 <div class="header-right"><nav aria-label="Main navigation"><a href="#projects">Projects</a><a href="#research">Research</a><a href="#playground">Playground</a></nav><button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme"><svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.8 13.1A9 9 0 0 1 10.9 3.2a9 9 0 1 0 9.9 9.9Z"/></svg><svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button></div>
 </header>
@@ -21,9 +21,10 @@
 <p class="intro-current">Right now, I'm building <a href="#folio">Folio</a>, a desktop workspace for course materials and questions.</p>
 <div class="intro-links"><a class="primary-link" href="#projects">Explore my work <span aria-hidden="true">↗</span></a><a class="intro-github" href="https://github.com/Bensssonxx" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in a new tab)</span></a></div></div>
 <div class="work-preview"><fieldset class="preview-picker"><legend class="sr-only">Preview a project</legend>
-<input class="sr-only" type="radio" name="preview" id="preview-folio" checked><label for="preview-folio">Folio</label>
+<div class="preview-controls"><input class="sr-only" type="radio" name="preview" id="preview-folio" checked><label for="preview-folio">Folio</label>
 <input class="sr-only" type="radio" name="preview" id="preview-quizready"><label for="preview-quizready">QuizReady</label>
 <input class="sr-only" type="radio" name="preview" id="preview-palworld"><label for="preview-palworld">Palworld</label>
+<span class="preview-glass" aria-hidden="true" hidden></span></div>
 <div class="preview-frames">
 <figure class="preview-frame preview-folio"><div class="preview-picture"><img src="assets/folio-english-sources.png" width="1440" height="960" alt="Folio's English interface with an answer and the saved lecture source open beside it" decoding="async"></div><figcaption><strong>Folio</strong><span>Answers beside their sources.</span><p class="preview-description">A desktop workspace for course materials, questions, and the original files behind an answer.</p><div class="preview-actions"><button class="tour-trigger" type="button"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M4 2.7 13 8 4 13.3Z" fill="currentColor"/></svg>Play interface tour</button><a href="#folio">Project notes</a></div><p class="preview-note">Prepared demo content · 10-second walkthrough</p></figcaption></figure>
 <figure class="preview-frame preview-quizready"><div class="preview-picture"><img src="assets/quizready-editor.png" width="2928" height="1920" alt="QuizReady's practice quiz editor in the LearnWithAI course platform" loading="lazy" decoding="async"></div><figcaption><strong>QuizReady</strong><span>Graded PDFs and practice quizzes.</span><p class="preview-description">My COMP 423 final project, built within the existing LearnWithAI course platform.</p><div class="preview-actions"><a href="#quizready">Explore QuizReady</a></div><p class="preview-note">Archived course-project interface</p></figcaption></figure>
